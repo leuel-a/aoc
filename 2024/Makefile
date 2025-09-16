@@ -1,2 +1,2 @@
-main: main.go
+main: main.go input.txt
 	go build -o main main.go
