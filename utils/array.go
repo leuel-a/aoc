@@ -18,3 +18,14 @@ func ConvertToNumArray(input []string) ([]int, error) {
 	}
 	return result, nil
 }
+
+// CloneGrid creates a deep copy of a two-dimensional slice of integers (a grid).
+func CloneGrid(originalGrid [][]string) [][]string {
+	newGrid := make([][]string, len(originalGrid))
+
+	for i, row := range originalGrid {
+		newGrid[i] = make([]string, len(row))
+		copy(newGrid[i], row)
+	}
+	return newGrid
+}
