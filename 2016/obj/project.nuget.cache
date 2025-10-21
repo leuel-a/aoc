@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "imlQ0LC95Kk=",
+  "success": true,
+  "projectFilePath": "/home/leuel/projects/aoc/2016/2016.csproj",
+  "expectedPackageFiles": [
+    "/home/leuel/.nuget/packages/microsoft.netcore.app.host.linux-x64/8.0.21/microsoft.netcore.app.host.linux-x64.8.0.21.nupkg.sha512"
+  ],
+  "logs": []
+}

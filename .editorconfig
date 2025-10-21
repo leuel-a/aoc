@@ -1,5 +1,5 @@
 root = true
 
-[*.{java,c}]
+[*.{java,c,cs}]
 indent_size = 4
 indent_style = space

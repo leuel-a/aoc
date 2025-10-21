@@ -1,0 +1,15 @@
+/home/leuel/projects/aoc/2016/bin/Debug/net8.0/2016
+/home/leuel/projects/aoc/2016/bin/Debug/net8.0/2016.deps.json
+/home/leuel/projects/aoc/2016/bin/Debug/net8.0/2016.runtimeconfig.json
+/home/leuel/projects/aoc/2016/bin/Debug/net8.0/2016.dll
+/home/leuel/projects/aoc/2016/bin/Debug/net8.0/2016.pdb
+/home/leuel/projects/aoc/2016/obj/Debug/net8.0/2016.GeneratedMSBuildEditorConfig.editorconfig
+/home/leuel/projects/aoc/2016/obj/Debug/net8.0/2016.AssemblyInfoInputs.cache
+/home/leuel/projects/aoc/2016/obj/Debug/net8.0/2016.AssemblyInfo.cs
+/home/leuel/projects/aoc/2016/obj/Debug/net8.0/2016.csproj.CoreCompileInputs.cache
+/home/leuel/projects/aoc/2016/obj/Debug/net8.0/2016.sourcelink.json
+/home/leuel/projects/aoc/2016/obj/Debug/net8.0/2016.dll
+/home/leuel/projects/aoc/2016/obj/Debug/net8.0/refint/2016.dll
+/home/leuel/projects/aoc/2016/obj/Debug/net8.0/2016.pdb
+/home/leuel/projects/aoc/2016/obj/Debug/net8.0/2016.genruntimeconfig.cache
+/home/leuel/projects/aoc/2016/obj/Debug/net8.0/ref/2016.dll
