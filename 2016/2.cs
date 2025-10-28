@@ -3,6 +3,7 @@
 internal class DayTwo
 {
     static string PATH = "input.txt";
+
     static int[,] KEYPAD = new int[3, 3]{
         {1, 2, 3},
         {4, 5, 6},
