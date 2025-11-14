@@ -1,56 +1,63 @@
-﻿// Problem Link -> https://adventofcode.com/2016/day/3
+﻿using System.Text.RegularExpressions;
 
 public class Program
 {
+    static char A_CHARACTER = 'a';
     static string INPUT_FILE = "input.txt";
 
-    public static void partOne()
+    private static void partOne()
     {
-        int count = 0;
+        int realRoomsCount = 0;
+        int sectorIdSum = 0;
         using var reader = new StreamReader(INPUT_FILE);
 
         while (reader.ReadLine() is string line)
         {
-            var numbers = line.Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
-            if (IsValidTriangle(numbers))
-                count++;
-        }
-
-        Console.WriteLine($"\tPart One Solution: {count}");
-    }
-
-    public static void partTwo()
-    {
-        var numbers = new List<int[]>();
-        using var reader = new StreamReader(INPUT_FILE);
-
-        while (reader.ReadLine() is string line)
-            numbers.Add(line.Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray());
-
-        var count = 0;
-        for (int i = 2; i < numbers.Count; i += 3)
-        {
-            for (int j = 0; j < 3; j++)
+            int[] count = new int[26];
+            foreach (var value in line.Split('-')[..^1])
             {
-                if (IsValidTriangle(new[] { numbers[i][j], numbers[i - 1][j], numbers[i - 2][j] }))
-                    count++;
+                foreach (var character in value.ToCharArray())
+                    count[(int)character - (int)A_CHARACTER]++;
+            }
 
-                // Console.WriteLine($"{numbers[i - 2][j]}, {numbers[i - 1][j]}, {numbers[i][j]} => Count {count}");
+            var match = Regex.Match(line.Split('-')[^1], @"(\d+)\[([a-z]+)\]");
+
+            string sectorId = match.Groups[1].Value;
+            string checksum = match.Groups[2].Value;
+
+            // Console.WriteLine($"Input: {line} --> Sector ID: {sectorId} Checksum: {checksum}");
+
+            var realRoom = true;
+            for (int i = 1; i < checksum.Count(); i++)
+            {
+                var currIndex = (int)(checksum[i]) - (int)A_CHARACTER;
+                var prevIndex = (int)(checksum[i - 1]) - (int)A_CHARACTER;
+
+                // Console.WriteLine($"({checksum[i]}, {currIndex}) -- ({checksum[i - 1]}, {currIndex})");
+
+                if (count[currIndex] > count[prevIndex])
+                    realRoom = false;
+
+                if ((count[currIndex] == count[prevIndex]) && (prevIndex > currIndex))
+                    realRoom = false;
+
+                if (realRoom == false)
+                    break;
+            }
+
+            if (realRoom)
+            {
+                realRoomsCount++;
+                sectorIdSum += int.Parse(sectorId);
             }
         }
-        Console.WriteLine($"\tPart Two Solution: {count}");
+
+        Console.WriteLine($"Real Rooms: {realRoomsCount}, Sector ID Sum: {sectorIdSum}");
     }
 
-    private static bool IsValidTriangle(int[] sides)
+    public static void Main(string[] args)
     {
-        return (sides[0] + sides[1] > sides[2]) && (sides[0] + sides[2] > sides[1]) && (sides[1] + sides[2] > sides[0]);
-    }
-
-    private static void Main(string[] args)
-    {
-        Console.WriteLine("AOC 2016 - Problem 3 Solutions");
+        Console.WriteLine("AOC 2016 - Problem 4 Solutions");
         partOne();
-        partTwo();
     }
 }
-
