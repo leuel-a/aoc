@@ -6,8 +6,9 @@ Problem Link: https://adventofcode.com/2022/day/1
 Difficulty: Easy
 """
 
-INPUT_FILE = 'input.txt'
-SEPARATOR = '\n'
+INPUT_FILE = "input.txt"
+SEPARATOR = "\n"
+
 
 def solutionPartOne():
     with open(INPUT_FILE, "r") as file:
@@ -47,9 +48,9 @@ def solutionPartTwo():
 
 
 def main():
-    print('Advent of Code - 2022 - Day 1 Solution')
-    print(f'\tPart One Solution: {solutionPartOne()}')
-    print(f'\tPart Two Solution: {solutionPartTwo()}')
+    print("Advent of Code - 2022 - Day 1 Solution")
+    print(f"\tPart One Solution: {solutionPartOne()}")
+    print(f"\tPart Two Solution: {solutionPartTwo()}")
 
 
 if __name__ == "__main__":

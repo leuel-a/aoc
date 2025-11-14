@@ -46,7 +46,6 @@ int main() {
     }
 
     solutionPartTwo(file);
-
     fclose(file);
 
     return (0);

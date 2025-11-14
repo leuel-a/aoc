@@ -6,8 +6,9 @@ Problem Link: https://adventofcode.com/2022/day/1
 Difficulty: Easy
 """
 
-INPUT_FILE = 'input.txt'
-SEPARATOR = '\n'
+INPUT_FILE = "input.txt"
+SEPARATOR = "\n"
+
 
 def main():
     print("Hello, World")

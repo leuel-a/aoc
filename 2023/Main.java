@@ -12,7 +12,6 @@ public class Main {
         System.err.println(RED + message + RESET);
     }
 
-    // eightwothree -> 823
     public static void convert(String value) {
         int i = 0;
         StringBuilder builder = new StringBuilder();
@@ -23,25 +22,19 @@ public class Main {
             char character = valueArray[i];
 
             if (character == 'o' && i + 2 < valueArray.length) {
-                // one candidate
                 candidate = String.valueOf(Arrays.copyOfRange(valueArray, i, i + 3));
-                // System.out.println("One Candidate: " + candidate);
-
                 if (candidate == "one") {
                     builder.append("1");
                     i += 3;
                     continue;
                 }
             } else if (character == 't') {
-                // two candidate
                 if (i + 2 < valueArray.length
-                        && String.valueOf(Arrays.copyOfRange(valueArray, i, i + 3)).equals("two")) {
+                && String.valueOf(Arrays.copyOfRange(valueArray, i, i + 3)).equals("two")) {
                     builder.append("2");
                     i += 3;
                     continue;
                 }
-
-                // three candidate
                 if (i + 4 < valueArray.length && String.valueOf(Arrays.copyOfRange(valueArray, i, i + 5)) == "three") {
                     builder.append("3");
                     i += 5;
@@ -62,7 +55,6 @@ public class Main {
             } else if (character == 's') {
             } else if (character == 'e') {
             } else if (character == 'n') {
-                // nine
                 if (String.valueOf(Arrays.copyOfRange(valueArray, i, i + 5)) == "nine") {
                     builder.append("9");
                     i += 5;
