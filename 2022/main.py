@@ -17,10 +17,22 @@ ELF_PLAY = {
     "C": "Scissors",
 }
 
-YOUR_PLAY = {
+WIN_YOUR_PLAY = {
     "X": ("Rock", "C"),
     "Y": ("Paper", "A"),
     "Z": ("Scissors", "B"),
+}
+
+DRAW_YOUR_PLAY = {
+    "X": ("Rock", "A"),
+    "Y": ("Paper", "B"),
+    "Z": ("Scissors", "C"),
+}
+
+LOSE_YOUR_PLAY = {
+    "X": ("Rock", "B"),
+    "Y": ("Paper", "C"),
+    "Z": ("Scissors", "A"),
 }
 
 WIN_INCREMENT = 6
@@ -37,17 +49,23 @@ def solutionPartOne():
         for line in lines:
             elf_move, move = line.split(GAME_SEPARATOR)
             print(
-                f"ELF Move: {elf_move}, Move: {move} Greater than: {YOUR_PLAY[move][1]}"
+                f"ELF Move: {elf_move}, Move: {move} Greater than: {WIN_YOUR_PLAY[move][1]}"
             )
 
-            if YOUR_PLAY[move][1] == elf_move:
-                final_score += WIN_INCREMENT + ROUND_VALUE[YOUR_PLAY[move][0]]
-            elif YOUR_PLAY[move][0] == ELF_PLAY[elf_move]:
-                final_score += DRAW_INCREMENT + ROUND_VALUE[YOUR_PLAY[move][0]]
+            if WIN_YOUR_PLAY[move][1] == elf_move:
+                final_score += WIN_INCREMENT + ROUND_VALUE[WIN_YOUR_PLAY[move][0]]
+            elif WIN_YOUR_PLAY[move][0] == ELF_PLAY[elf_move]:
+                final_score += DRAW_INCREMENT + ROUND_VALUE[WIN_YOUR_PLAY[move][0]]
             else:
-                final_score += LOST_INCREMENT + ROUND_VALUE[YOUR_PLAY[move][0]]
+                final_score += LOST_INCREMENT + ROUND_VALUE[WIN_YOUR_PLAY[move][0]]
 
         return final_score
+
+
+# A Rock Y Rock
+# B Paper X Rock
+# C Scissors Z Rock
+
 
 def main():
     with open(INPUT_FILE, "r") as file:
@@ -59,15 +77,15 @@ def main():
         for line in lines:
             elf_move, move = line.split(GAME_SEPARATOR)
             print(
-                f"ELF Move: {elf_move}, Move: {move} Greater than: {YOUR_PLAY[move][1]}"
+                f"ELF Move: {elf_move}, Move: {move} Greater than: {WIN_YOUR_PLAY[move][1]}"
             )
 
-            if YOUR_PLAY[move][1] == elf_move:
-                final_score += WIN_INCREMENT + ROUND_VALUE[YOUR_PLAY[move][0]]
-            elif YOUR_PLAY[move][0] == ELF_PLAY[elf_move]:
-                final_score += DRAW_INCREMENT + ROUND_VALUE[YOUR_PLAY[move][0]]
-            else:
-                final_score += LOST_INCREMENT + ROUND_VALUE[YOUR_PLAY[move][0]]
+            if move == "X": # NEED TO LOSE THE ROUND
+                final_score += LOST_INCREMENT
+            elif move == "Y": # NEED TO DRAW THE ROUND SO
+                final_score += DRAW_INCREMENT + (ROUND_VALUE[ELF_PLAY[elf_move]])
+            else: # NEED TO WIN THE ROUND SO
+                final_score += WIN_INCREMENT + (ROUND_VALUE[ELF_PLAY[elf_move]])
 
         print(final_score)
 

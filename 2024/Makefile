@@ -12,6 +12,7 @@ INPUT_FILE = input.txt
 
 go: $(GO_MAIN).go $(INPUT_FILE)
 	$(GO) build -o $(GO_MAIN).out $(GO_MAIN).go
+	./$(GO_MAIN).out
 
 java: $(JAVA_MAIN).java $(INPUT_FILE)
 	@$(JAVAC) -sourcepath $(JAVA_SOURCE_PATH) -d $(JAVA_CLASSPATH) $(JAVA_MAIN).java

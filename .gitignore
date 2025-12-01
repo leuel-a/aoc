@@ -8,3 +8,7 @@ obj/
 # Python Files
 .venv/
 __pycache__/
+
+# Editor Files
+.vscode/
+.idea/
