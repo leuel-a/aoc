@@ -1,2 +1,2 @@
 <?php
-printf("Hello, World\n");
+echo "Hello, World\n";
