@@ -1,4 +1,7 @@
 <?php
+
+// PROBLEM: https://adventofcode.com/2021/day/4
+
 $input_file = "input.txt";
 $handle = fopen($input_file, "r");
 
